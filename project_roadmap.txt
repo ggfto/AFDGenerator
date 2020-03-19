@@ -1,0 +1,8 @@
+ - Resolver problemas para batidas Interdatas;
+ - Access violation ao criar Datasets, verificar opções; - OK
+ - Verificar bug de horários quebrados; - OK
+ - Adicionar opção de gerar Interjorada automaticamente;
+ - Adicionar opção de gerar Intrajornada automaticamente; - Junto com a variação de dezena é meio que possível
+ - Ao salvar, verificar se o arquivo existe; - OK
+ - Adicionar carga horária total na Geral;
+ - Adicionar opção de gerar escala;

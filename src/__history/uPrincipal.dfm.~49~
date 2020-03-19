@@ -1,0 +1,815 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Gerador de Arquivo AFD'
+  ClientHeight = 437
+  ClientWidth = 819
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pgcPages: TPageControl
+    Left = 0
+    Top = 0
+    Width = 819
+    Height = 437
+    ActivePage = tsGenerator
+    Align = alClient
+    TabOrder = 0
+    OnChange = pgcPagesChange
+    object tsGenerator: TTabSheet
+      Caption = 'Op'#231#245'es'
+      ImageIndex = 2
+      object pnlGenTop: TPanel
+        Left = 0
+        Top = 0
+        Width = 811
+        Height = 180
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object pnlGenTLeft: TPanel
+          Left = 0
+          Top = 0
+          Width = 250
+          Height = 180
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 0
+          object grpPeriodo: TGroupBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 244
+            Height = 87
+            Margins.Bottom = 0
+            Align = alTop
+            Caption = 'Per'#237'odo: '
+            TabOrder = 0
+            object lblInicio: TLabel
+              Left = 8
+              Top = 28
+              Width = 29
+              Height = 13
+              Caption = 'In'#237'cio:'
+            end
+            object lblFim: TLabel
+              Left = 17
+              Top = 55
+              Width = 20
+              Height = 13
+              Caption = 'Fim:'
+            end
+            object dtpInicio: TDateTimePicker
+              Left = 43
+              Top = 23
+              Width = 186
+              Height = 21
+              Date = 43741.998398310180000000
+              Time = 43741.998398310180000000
+              TabOrder = 0
+              OnCloseUp = dtpInicioCloseUp
+            end
+            object dtpFim: TDateTimePicker
+              Left = 43
+              Top = 50
+              Width = 186
+              Height = 21
+              Date = 43741.998495856480000000
+              Time = 43741.998495856480000000
+              TabOrder = 1
+            end
+          end
+          object grpGeral: TGroupBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 90
+            Width = 244
+            Height = 87
+            Margins.Top = 0
+            Align = alClient
+            Caption = 'Gerais: '
+            TabOrder = 1
+            object lblNSR: TLabel
+              Left = 6
+              Top = 28
+              Width = 54
+              Height = 13
+              Caption = 'NSR Inicial:'
+            end
+            object lblPIS: TLabel
+              Left = 20
+              Top = 56
+              Width = 40
+              Height = 13
+              Caption = 'Nro PIS:'
+            end
+            object chkAutoNSR: TCheckBox
+              Left = 160
+              Top = 27
+              Width = 76
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Autom'#225'tico?'
+              Checked = True
+              State = cbChecked
+              TabOrder = 1
+              OnClick = chkAutoNSRClick
+            end
+            object chkAutoPIS: TCheckBox
+              Left = 158
+              Top = 55
+              Width = 78
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Autom'#225'tico?'
+              Checked = True
+              State = cbChecked
+              TabOrder = 3
+              OnClick = chkAutoPISClick
+            end
+            object medPIS: TMaskEdit
+              Left = 66
+              Top = 52
+              Width = 86
+              Height = 21
+              Color = clBtnFace
+              Enabled = False
+              TabOrder = 2
+              Text = ''
+              OnExit = medPISExit
+            end
+            object medNSR: TMaskEdit
+              Left = 66
+              Top = 25
+              Width = 86
+              Height = 21
+              Color = clBtnFace
+              Enabled = False
+              TabOrder = 0
+              Text = ''
+            end
+          end
+        end
+        object pnlGenTMid: TPanel
+          Left = 250
+          Top = 0
+          Width = 135
+          Height = 180
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 1
+          object grpSemanal: TGroupBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 129
+            Height = 87
+            Margins.Bottom = 0
+            Align = alTop
+            Caption = 'Jornada Semanal: '
+            TabOrder = 0
+            object chkPontoSabado: TCheckBox
+              Left = 8
+              Top = 27
+              Width = 110
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Ponto no S'#225'bado?'
+              TabOrder = 0
+            end
+            object chkPontoDomingo: TCheckBox
+              Left = 8
+              Top = 54
+              Width = 110
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Ponto no Domingo?'
+              TabOrder = 1
+            end
+          end
+          object grpBatidas: TGroupBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 90
+            Width = 129
+            Height = 87
+            Margins.Top = 0
+            Align = alClient
+            Caption = 'Batidas:'
+            TabOrder = 1
+            object chkVariarMinutos: TCheckBox
+              Left = 8
+              Top = 27
+              Width = 97
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Variar Minutos?'
+              Checked = True
+              State = cbChecked
+              TabOrder = 0
+            end
+            object chkVariarDezenas: TCheckBox
+              Left = 8
+              Top = 54
+              Width = 97
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Variar Dezenas?'
+              TabOrder = 1
+            end
+          end
+        end
+        object pnlGenTRight: TPanel
+          Left = 385
+          Top = 0
+          Width = 426
+          Height = 180
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 2
+          object grpEscalonado: TGroupBox
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 160
+            Height = 174
+            Align = alLeft
+            Caption = 'Escala de Trabalho: '
+            TabOrder = 0
+            object lblDiasTrab: TLabel
+              Left = 8
+              Top = 42
+              Width = 53
+              Height = 13
+              Caption = 'Dias Trab.:'
+            end
+            object lblDiasFolga: TLabel
+              Left = 8
+              Top = 70
+              Width = 53
+              Height = 13
+              Caption = 'Dias Folga:'
+            end
+            object chkEscalonar: TCheckBox
+              Left = 8
+              Top = 16
+              Width = 110
+              Height = 17
+              Alignment = taLeftJustify
+              Caption = 'Escalonar?'
+              TabOrder = 0
+              OnClick = chkEscalonarClick
+            end
+            object seDiasTrab: TSpinEdit
+              Left = 83
+              Top = 39
+              Width = 35
+              Height = 22
+              MaxValue = 30
+              MinValue = 1
+              TabOrder = 1
+              Value = 1
+            end
+            object seDiasFolga: TSpinEdit
+              Left = 83
+              Top = 67
+              Width = 35
+              Height = 22
+              MaxValue = 30
+              MinValue = 1
+              TabOrder = 2
+              Value = 1
+            end
+            object rgPrimeiroDia: TRadioGroup
+              AlignWithMargins = True
+              Left = 5
+              Top = 119
+              Width = 150
+              Height = 50
+              Align = alBottom
+              Caption = 'In'#237'cio da Escala: '
+              Columns = 2
+              ItemIndex = 0
+              Items.Strings = (
+                'Trabalho'
+                'Folga')
+              TabOrder = 3
+            end
+          end
+        end
+      end
+      object pnlGen: TPanel
+        Left = 0
+        Top = 180
+        Width = 811
+        Height = 188
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 1
+        object dbgCargaHoraria: TDBGrid
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 805
+          Height = 182
+          Align = alClient
+          DataSource = dsoCargaHor
+          DrawingStyle = gdsGradient
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+          OnKeyDown = dbgCargaHorariaKeyDown
+        end
+      end
+      object pnlGenNav: TPanel
+        Left = 0
+        Top = 368
+        Width = 811
+        Height = 41
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 2
+        object dbnNavCGH: TDBNavigator
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 805
+          Height = 35
+          DataSource = dsoCargaHor
+          VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbPost, nbCancel, nbRefresh]
+          Align = alClient
+          Hints.Strings = (
+            'Primeiro registro'
+            'Anterior registro'
+            'Pr'#243'ximo registro'
+            #218'ltimo registro'
+            'Inserir registro'
+            'Apagar registro'
+            'Editar registro'
+            'Salvar altera'#231#245'es'
+            'Cancelar edi'#231#227'o'
+            'Atualizar dados'
+            'Aplicar atualiza'#231#245'es'
+            'Cancelar atualiza'#231#245'es')
+          TabOrder = 0
+        end
+      end
+    end
+    object tsGrid: TTabSheet
+      Caption = 'Visualizar'
+      object pnlFooterGrid: TPanel
+        Left = 0
+        Top = 368
+        Width = 811
+        Height = 41
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 1
+        object pnlFGLeft: TPanel
+          Left = 0
+          Top = 0
+          Width = 200
+          Height = 41
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 0
+          object btnVisualizar: TBitBtn
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 94
+            Height = 35
+            Align = alLeft
+            Caption = '&Visualizar'
+            Glyph.Data = {
+              F6060000424DF606000000000000360000002800000018000000180000000100
+              180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE5DDFDC9B8FAAD93F7916DF57C52
+              F3916DF5AD93F7C9B7FAE5DCFDFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0EBFE9B7AF67649F27649F2
+              7649F27649F27649F27649F27649F27649F27649F29877F5EEE8FDFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCCBCFA7E54F376
+              49F27649F27649F27649F27649F27649F27649F27649F27649F27649F27649F2
+              7D52F3C9B8FAFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAA8E
+              F77649F27649F27649F27649F27649F27649F27649F27649F27649F27649F276
+              49F27649F27649F27649F28A53A0A26B7BFEFEFEFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFCEBDFA7649F27649F27649F27649F27649F27649F27649F27649F27749
+              EE7F4ECC8651AF824FC2794AE7703B72814980A05E448A53A0C9B8FAFFFFFFFF
+              FFFFFFFFFFFFFFFFF0ECFE7F54F37649F27649F27649F27649F27649F27649F2
+              7649F27F4DCD995B61A05E44A05E44A05E449E5D4E8247467C3E37864E927649
+              F27D52F3EEE8FDFFFFFFF7E4D0FEF3EAF0E3EFEADCEFEADCEFEADCEFEADCEFEA
+              DCEFEADCEFEADCEFD7BED89F5D4BBE814CEDB855F0BC55EFBB58D39A52A05E44
+              894C5B7845A77649F27649F29877F5FEFEFFF4DDC3FEF4EBFFF6EEFFF6EEFFF6
+              EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEA46C78B47549F0BC54F8C55FFECC68FF
+              CD69FDCB67C58A529E5D4E794AE77649F27649F27649F2E5DCFDF4DDC3A2C9F0
+              1E8AF32D9EFD2D9EFD2D9EFD2D9EFD2D9EFD1EB6FE12C9FC9E5F4AE3AD55F5C2
+              5BFFCD69FFCD69FFCD69FFCD69EFBA63A05E44824FC27649F27649F27649F2C9
+              B7FAF4DDC38EC1F01887F21895FF1895FF1895FF1895FF1895FF12B4FF1BC5ED
+              A05E44EAB556FDCA65FFCD69FFCD69FFCD69FFCD69FAC767A05E448651AF7649
+              F27649F27649F2AD93F7F4DDC3AED0EF2A91F34AAAFB4AAAFB4AAAFB4AAAFB4A
+              AAFB31BAFD1AC8FE9C6053DCA454FCC964FFCD69FFCD69FFCD69FFD17AE6B05F
+              A05E447F4ECC7649F27649F27649F2916DF5F4DDC3FDF3E7FCF3E2FCF3E2FCF3
+              E2FCF3E2FCF3E2FCF3E2FCF3E2FCF3E2B0818DA56445EEB95DFFCD69FFD076FE
+              DBA0FACD7AB2734B995B617749EE7649F27649F27649F27C52F3F4DDC3F8EED2
+              F1E9B7F1E9B7F1E9B7F1E9B7F1E9B7F1E9B7F1E9B7F1E9B7EEE4B49F625FA361
+              45CC9155DFA85DD59D5BAC6B489E5D4B7F4DCD7649F27649F27649F27649F291
+              6DF5F4DDC3F7EECFEFE7AEEFE7AEEFE7AEEFE7AEEFE7AEEFE7AEEFE7AEEFE7AE
+              EFE7AEECE1AAB88C7AA06151A05E449F5E4AA66F787D4EDB7649F27649F27649
+              F27649F27649F2AD93F7F4DDC3FEF4EBFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFF
+              F6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEF4E4DDFEF4EBFFF6EE7A4EF2
+              7649F27649F27649F27649F27649F2C9B8FAF4DDC3FCE8C6F7CD79FFDE9FFFDE
+              9FFFDE9FFFDE9FFFEDD1FFF6EEF0E8B3EEE6ABEEE6ABEEE6ABEEE6ABEEE6ABFC
+              F3E1FFF6EE7A4EF27649F27649F27649F27649F27649F2E5DDFDF4DDC3FADCA5
+              F2BF57FFCD69FFCD69FFCD69FFCD69FFE5B8FFF6EEF3EBBFF2EABAF2EABAF2EA
+              BAF2EABAF2EABAFCF3E2FFF6EE7A4EF27649F27649F27649F27649F29B7AF6FF
+              FFFFF4DDC3FADCA5F2BF57FFCD69FFCD69FFCD69FFCD69FFE5B8FFF6EEFAF1D9
+              F8F0D3F8F0D3F8F0D3F8F0D3F8F0D3FFF6ECFFF6EE7A4EF27649F27649F27649
+              F27E54F3F0EBFEFFFFFFF4DDC3FADCA5F2BF57FFCD69FFCD69FFCD69FFCD69FF
+              E5B8FFF6EEF3EBBFF2EABAF2EABAF2EABAF2EABAF2EABAFCF3E2FFF6EE7A4EF2
+              7649F27649F27649F2CCBCFAFFFFFFFFFFFFF4DDC3FCE8C6F7CD79FFDE9FFFDE
+              9FFFDE9FFFDE9FFFEDD1FFF6EEF0E8B3EEE6ABEEE6ABEEE6ABEEE6ABEEE6ABFC
+              F3E1FFF6EE7A4EF27649F27649F2AA8EF7FFFFFFFFFFFFFFFFFFF4DDC3FEF4EB
+              FFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6EEFFF6
+              EEFFF6EEFFF6EEFFF6EEFFF6EE7A4EF27F54F3CEBDFAFFFFFFFFFFFFFFFFFFFF
+              FFFF7A4534A67B6BA97E6FA97E6FA97E6FA6725FA268529D61539B5E529B5E52
+              9B5E529B5E529B5E529B5E529B5E529B5E529B5E529D7CEFF0ECFEFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFF632B1A834A675C5F68785C327C4E2B905038A05E44A0
+              5E44A05E44A05E44A05E44A05E44A05E44A05E44A05E44A05E44A05E44F8F4F2
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF642C1B793C2A7A3F2C7C3F297C3E
+              29905038A05E44A05E44A05E44A05E44A05E44A05E44A05E44A05E44A05E44A0
+              5E449F5D43FAF8F7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 0
+            OnClick = btnVisualizarClick
+          end
+          object btnSalvar: TBitBtn
+            AlignWithMargins = True
+            Left = 103
+            Top = 3
+            Width = 94
+            Height = 35
+            Align = alClient
+            Caption = '&Salvar'
+            Enabled = False
+            Glyph.Data = {
+              F6060000424DF606000000000000360000002800000018000000180000000100
+              180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE6DCE1B59FA3B49EA5BBACB6CBC2CECBC2
+              CEBBACB6B49EA5B59FA3E6DCE1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EFEDBCAABAAC8DD1AB8CD2AB8CD2
+              AB8CD2AB8CD2AB8CD2AB8CD2AB8CD2AB8CD2AC8DD1BCAABAF3EFEDFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC5B3A9D9D7D6E0E0E0E0
+              E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+              D9D7D6C5B3A9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB69E918C75
+              6FD9D5DED3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3
+              CBDCD3CBDCD3CBDCD9D4DE8C756FB69E91FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              BFAA9D5F3C348B746FBFACD7AF91D3AF91D3AF91D3AF91D3AF91D3AF91D3AF91
+              D3AF91D3AF91D3AF91D3AF91D3AF91D3BEA9D78B746F5F3C34BFAA9DFFFFFFFF
+              FFFFFFFFFFF0E9E667433A5E3B348B746FE0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+              E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E08B746F5E3B
+              3467433AF0E9E6FFFFFFFFFFFF906F5F5E3B345E3B348B746FD9D4DED3CBDCD3
+              CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDCD3CBDC
+              D8D3DE8B746F5E3B345E3B34906F5FFFFFFFFBF7F47751415E3B345E3B348B74
+              6FBFACD7AF91D3AF91D3AF91D3AF91D3AF91D3AF91D3AF91D3AF91D3AF91D3AF
+              91D3AF91D3AF91D3BEA9D78B746F5E3B345E3B34775141FBF7F4E6D2BF775140
+              5E3B345E3B348A736FE0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0
+              E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E08A736F5E3B345E3B34775140E6
+              D2BFD5B2927751405E3B345E3B346B4C46D4D0D0E0E0E0E0E0E0E0E0E0E0E0E0
+              E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0D4D0D06B4C465E3B
+              345E3B34775140D5B292CEA5807751405E3B345E3B345E3B34603D3666453F66
+              453F66453F66453F66453F66453F66453F66453F66453F66453F66453F66453F
+              603D365E3B345E3B345E3B34775140CEA580C7996E7751405E3B345E3B345E3B
+              345E3B345E3B345E3B345E3B345E3B345E3B345E3B345E3B345E3B345E3B345E
+              3B345E3B345E3B345E3B345E3B345E3B345E3B34775140C7996EC7996E775140
+              5E3B345E3B34603D3667463F67463F67463F63413A6240396240396240396240
+              39624039624039613F385E3B345E3B345E3B345E3B345E3B345E3B34775140CA
+              9E75CEA5807751405E3B345E3B34DED9D8FCFCFCFCFCFCFCFCFCECECECE0E0E0
+              E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0DFDFDF8A736F5E3B345E3B345E3B345E3B
+              345E3B34775140D6B494D5B2927751405E3B345E3B34F7F6F6FCFCFCFCFCFCFC
+              FCFCF9F9F9E1E1E1E0E0E0E0E0E0A79895765954856D68DEDDDDAB9D9B5E3B34
+              5E3B345E3B345E3B345E3B34785141E2C9B3E6D2BF7751405E3B345E3B34F7F6
+              F6FCFCFCFCFCFCFCFCFCFCFCFCECECECE0E0E0E0E0E08269645E3B345E3B34D8
+              D6D5AB9D9B5E3B345E3B345E3B345E3B345E3B348E644CEEDFD2FBF7F4775141
+              5E3B345E3B34F7F6F6FCFCFCFCFCFCFCFCFCFCFCFCF9F9F9E1E1E1E0E0E08269
+              645E3B345E3B34D8D6D5AB9D9B5E3B345E3B345E3B345E3B34765040C09167FA
+              F6F2FFFFFF7D5B4F5E3B345E3B34F7F6F6FCFCFCFCFCFCFCFCFCFCFCFCFCFCFC
+              ECECECE0E0E08269645E3B345E3B34D8D6D5AB9D9B5E3B345E3B345E3B347750
+              40C08F64E2C9B3FFFFFFFFFFFF856A645E3B345E3B34F7F6F6FCFCFCFCFCFCFC
+              FCFCFCFCFCFCFCFCF9F9F9E1E1E1927D795E3B34694943DCDBDBAB9D9B5E3B34
+              5E3B34785141C08F64CFA782FEFDFCFFFFFFFFFFFF927A755E3B345E3B34F7F6
+              F6FCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCFCEDEDEDDEDEDED8D6D5DCDBDBE0
+              E0E0AB9D9B5E3B34785141C09064C59569F4EBE2FFFFFFFFFFFFFFFFFFEAE6E5
+              B2A19EA3887BEFECEBF6F5F4F6F5F4F6F5F4F6F5F4F6F5F4F6F5F4F2F1F0D4CE
+              CBD4CDCAD4CDCAD4CDCAB9A4979F7354C29165C59569E6D2BFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFF5ECE4D0A884C49366C49366C49366C49366
+              C49366C49366C49366C49366C49366C49366C49366C49366CFA782F4EBE2FFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFDFDE2CAB3C5
+              9569C49366C49366C49366C49366C49366C49366C49366C49366C59569E2C9B3
+              FEFDFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFAF6F2EEDFD2E2C9B3D6B494CA9E75CA9E75D6B494E2C9B3EE
+              DFD2FAF6F2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 1
+            OnClick = btnSalvarClick
+          end
+        end
+        object pnlFGNav: TPanel
+          Left = 200
+          Top = 0
+          Width = 611
+          Height = 41
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          object dbnNav: TDBNavigator
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 605
+            Height = 35
+            DataSource = dsoAFD
+            VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbPost, nbCancel, nbRefresh]
+            Align = alClient
+            TabOrder = 0
+          end
+        end
+      end
+      object pnlVisualizar: TPanel
+        Left = 0
+        Top = 0
+        Width = 811
+        Height = 368
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        object pnlMemo: TPanel
+          Left = 405
+          Top = 0
+          Width = 406
+          Height = 368
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'pnlMemo'
+          TabOrder = 1
+          object mmoMemo: TMemo
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 400
+            Height = 362
+            Align = alClient
+            Color = clBtnFace
+            Enabled = False
+            ScrollBars = ssBoth
+            TabOrder = 0
+          end
+        end
+        object pnlGrid: TPanel
+          Left = 0
+          Top = 0
+          Width = 405
+          Height = 368
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 0
+          object dbgGrid: TDBGrid
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 399
+            Height = 362
+            Align = alClient
+            DataSource = dsoAFD
+            DrawingStyle = gdsGradient
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
+        end
+      end
+    end
+    object tsSobre: TTabSheet
+      Caption = 'Sobre'
+      ImageIndex = 3
+      object lblAuthor: TLabel
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 805
+        Height = 19
+        Align = alTop
+        Caption = 'Autor: Gabriel Freitas'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Calibri'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 146
+      end
+      object lblEmail: TLabel
+        AlignWithMargins = True
+        Left = 3
+        Top = 28
+        Width = 805
+        Height = 19
+        Align = alTop
+        Caption = 'Email: gabriel.freitas@sankhya.com.br'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Calibri'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 261
+      end
+      object lblAbout: TLabel
+        AlignWithMargins = True
+        Left = 3
+        Top = 53
+        Width = 805
+        Height = 19
+        Align = alTop
+        Caption = 
+          'Sobre: Software criado com o intuito de agilizar os testes com a' +
+          'rquivos AFD.'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Calibri'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 520
+      end
+    end
+  end
+  object dsAFD: TClientDataSet
+    Aggregates = <>
+    PacketRecords = 0
+    Params = <>
+    BeforeInsert = dsAFDBeforeInsert
+    AfterPost = dsAFDAfterPost
+    Left = 204
+    Top = 224
+    object dsAFDNSR: TIntegerField
+      DisplayLabel = 'Sequencia'
+      DisplayWidth = 9
+      FieldName = 'NSR'
+      DisplayFormat = '000000000;1;0'
+    end
+    object dsAFDTipRegistro: TIntegerField
+      DisplayLabel = 'Tipo'
+      DisplayWidth = 1
+      FieldName = 'TipRegistro'
+    end
+    object dsAFDDataBatida: TDateField
+      DisplayLabel = 'Data'
+      FieldName = 'DataBatida'
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object dsAFDHora: TIntegerField
+      FieldName = 'Hora'
+      DisplayFormat = '#00:00'
+    end
+    object dsAFDPIS: TStringField
+      FieldName = 'PIS'
+      Size = 11
+    end
+  end
+  object dsoAFD: TDataSource
+    DataSet = dsAFD
+    Left = 124
+    Top = 224
+  end
+  object dsoCargaHor: TDataSource
+    DataSet = dsCargaHor
+    Left = 122
+    Top = 283
+  end
+  object dsCargaHor: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    BeforeInsert = dsCargaHorBeforeInsert
+    Left = 204
+    Top = 282
+    object dsCargaHorENT1: TIntegerField
+      DisplayLabel = 'Ent. 1'
+      DisplayWidth = 5
+      FieldName = 'ENT1'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI1: TIntegerField
+      DisplayLabel = 'Sai. 1'
+      DisplayWidth = 5
+      FieldName = 'SAI1'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT2: TIntegerField
+      DisplayLabel = 'Ent. 2'
+      DisplayWidth = 5
+      FieldName = 'ENT2'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI2: TIntegerField
+      DisplayLabel = 'Sai. 2'
+      DisplayWidth = 5
+      FieldName = 'SAI2'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT3: TIntegerField
+      DisplayLabel = 'Ent. 3'
+      DisplayWidth = 5
+      FieldName = 'ENT3'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI3: TIntegerField
+      DisplayLabel = 'Sai. 3'
+      DisplayWidth = 5
+      FieldName = 'SAI3'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT4: TIntegerField
+      DisplayLabel = 'Ent. 4'
+      DisplayWidth = 5
+      FieldName = 'ENT4'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI4: TIntegerField
+      DisplayLabel = 'Sai. 4'
+      DisplayWidth = 5
+      FieldName = 'SAI4'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT5: TIntegerField
+      DisplayLabel = 'Ent. 5'
+      DisplayWidth = 5
+      FieldName = 'ENT5'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI5: TIntegerField
+      DisplayLabel = 'Sai. 5'
+      DisplayWidth = 5
+      FieldName = 'SAI5'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT6: TIntegerField
+      DisplayLabel = 'Ent. 6'
+      DisplayWidth = 5
+      FieldName = 'ENT6'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI6: TIntegerField
+      DisplayLabel = 'Sai. 6'
+      DisplayWidth = 5
+      FieldName = 'SAI6'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT7: TIntegerField
+      DisplayLabel = 'Ent. 7'
+      DisplayWidth = 5
+      FieldName = 'ENT7'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI7: TIntegerField
+      DisplayLabel = 'Sai. 7'
+      DisplayWidth = 5
+      FieldName = 'SAI7'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorENT8: TIntegerField
+      DisplayLabel = 'Ent. 8'
+      DisplayWidth = 5
+      FieldName = 'ENT8'
+      DisplayFormat = '#00:00'
+    end
+    object dsCargaHorSAI8: TIntegerField
+      DisplayLabel = 'Sai. 8'
+      DisplayWidth = 5
+      FieldName = 'SAI8'
+      DisplayFormat = '#00:00'
+    end
+  end
+  object dlgSave: TSaveDialog
+    DefaultExt = 'txt'
+    FileName = 'AFD'
+    Filter = 'Arquivos de Texto (*.txt)|*.txt'
+    InitialDir = '%HOMEPATH%'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing, ofDontAddToRecent]
+    Title = 'Salvar Arquivo AFD'
+    Left = 252
+    Top = 280
+  end
+end
